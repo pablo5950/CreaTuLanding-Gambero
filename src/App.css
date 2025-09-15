@@ -1,0 +1,205 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fondo general y fuente */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* NavBar */
+.navbar {
+  background-color: #1e2a38;
+  color: white;
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.navbar h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 1rem auto 0 auto;
+}
+
+
+.navbar li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  transition: background-color 0.2s ease;
+  border-radius: 4px;
+}
+
+.navbar li a:hover {
+  background-color: #31475f;
+}
+
+
+/* Main layout */
+main {
+  padding: 2rem;
+}
+
+/* Item list container */
+.item-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Item card */
+.item-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.item-card:hover {
+  transform: scale(1.03);
+}
+
+.item-card img {
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.item-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.item-card p {
+  margin-bottom: 0.5rem;
+}
+
+.item-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #1e2a38;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.item-card a:hover {
+  background-color: #31475f;
+}
+
+/* Item detail */
+.item-detail {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.item-detail img {
+  max-width: 200px;
+  margin-bottom: 1rem;
+}
+
+.item-detail p {
+  margin: 0.5rem 0;
+}
+
+/* ItemCount */
+.item-count {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.item-count button {
+  padding: 0.4rem 0.8rem;
+  font-size: 2rem;
+  background-color: #31475f;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.item-count button:hover {
+  background-color: #31475f;
+}
+
+.item-count span {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+/* Botones de cantidad */
+.item-count button {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  background-color: #2ecc71; 
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.item-count button:hover {
+  background-color: #27ae60; 
+}
+
+/* Separación entre contador y botón */
+.item-detail .item-count {
+  margin-bottom: 3rem;
+}
+
+
+/* Botón Agregar al carrito */
+.item-detail button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  font-size: 1,5rem;
+  background-color: #360492; 
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.item-detail button:hover {
+  background-color: #c5303c; 
+}
+
+/* NotFound */
+.not-found {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.5rem;
+  color: #555;
+}

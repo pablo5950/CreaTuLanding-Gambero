@@ -1,30 +1,21 @@
+import { NavLink } from 'react-router-dom';
 
-import CartWidget from './CartWidget'; //Llamado a CartWidget desde NavBar como dijo el profe
-
-const NavBar = () => {
+function NavBar() {
   return (
-    <nav style={{
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '10px 20px',
-      backgroundColor: '#0077b6',
-      color: 'white',
-      borderBottom: '1px solid #ddd'
-    }}>
-      <h1 style={{ margin: 0 }}>Pablo´s - Indumentaria premium</h1>
-      
-      <ul style={{ display: 'flex', gap: '15px', listStyle: 'none', margin: 0 }}>
-        <li><a href="#" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Remeras</a></li>
-        <li><a href="#" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Zapatillas</a></li>
-        <li><a href="#" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Camperas</a></li>
-        <li><a href="#" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Short de baño</a></li>
-        <li><a href="#" style={{ color: 'white', textDecoration: 'none', fontWeight: 'bold' }}>Accesorios</a></li>
+    <nav className="navbar">
+      <h1>Pablos</h1>
+      <p style={{ fontSize: '1rem', marginBottom: '1rem' }}>
+        Todo lo que buscás en un solo lugar
+      </p>
+      <ul>
+        <li><NavLink to="/">Inicio</NavLink></li>
+        <li><NavLink to="/category/men's clothing">Hombre</NavLink></li>
+        <li><NavLink to="/category/women's clothing">Mujer</NavLink></li>
+        <li><NavLink to="/category/electronics">Electrónica</NavLink></li>
+        <li><NavLink to="/category/jewelery">Joyería</NavLink></li>
       </ul>
-
-      <CartWidget />
     </nav>
   );
-};
+}
 
 export default NavBar;
