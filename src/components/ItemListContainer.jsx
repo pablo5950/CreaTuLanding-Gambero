@@ -1,26 +1,36 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase/firebaseConfig';
 import ItemCard from './ItemCard';
 
 function ItemListContainer({ mensajeBienvenida }) {
-  const { categoryId } = useParams();
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    setLoading(true);
-    const url = categoryId
-      ? `https://fakestoreapi.com/products/category/${categoryId}`
-      : `https://fakestoreapi.com/products`;
+    const productosRef = collection(db, 'productos');
 
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        setProductos(data);
+    getDocs(productosRef)
+      .then(snapshot => {
+        const productosFirebase = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+
+        const filtrados = categoryId
+          ? productosFirebase.filter(prod =>
+              prod.category &&
+              prod.category.toLowerCase() === categoryId.toLowerCase()
+            )
+          : productosFirebase;
+
+        setProductos(filtrados);
         setLoading(false);
       })
-      .catch(err => {
-        console.error('Error al cargar productos:', err);
+      .catch(error => {
+        console.error('Error al cargar productos:', error);
         setLoading(false);
       });
   }, [categoryId]);
@@ -32,9 +42,13 @@ function ItemListContainer({ mensajeBienvenida }) {
         <p>Cargando productos...</p>
       ) : (
         <div className="item-list">
-          {productos.map(prod => (
-            <ItemCard key={prod.id} producto={prod} />
-          ))}
+          {productos.length === 0 ? (
+            <p>No hay productos en esta categoría.</p>
+          ) : (
+            productos.map(prod => (
+              <ItemCard key={prod.id} producto={prod} />
+            ))
+          )}
         </div>
       )}
     </div>

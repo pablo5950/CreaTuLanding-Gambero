@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom';
 
 function ItemCard({ producto }) {
+  const { id, title, price, image } = producto;
+
   return (
     <div className="item-card">
-      <img src={producto.image} alt={producto.title} width="150" />
-      <h3>{producto.title}</h3>
-      <p>Precio: ${producto.price}</p>
-      <Link to={`/item/${producto.id}`}>Ver detalle</Link>
+      {image ? (
+        <img src={image} alt={title} width="150" />
+      ) : (
+        <p>Imagen no disponible</p>
+      )}
+      <h3>{title || 'Sin título'}</h3>
+      <p>Precio: ${price || 'Consultar'}</p>
+      <Link to={`/item/${id}`}>Ver detalle</Link>
     </div>
   );
 }

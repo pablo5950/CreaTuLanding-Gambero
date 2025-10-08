@@ -2,6 +2,8 @@ import './App.css';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Cart from './components/Cart';
+import CheckoutForm from './components/CheckoutForm';
 import NotFound from './components/NotFound';
 import { Routes, Route } from 'react-router-dom';
 
@@ -20,8 +22,16 @@ function App() {
             element={<ItemListContainer mensajeBienvenida="Filtrando por categoría..." />}
           />
           <Route
-            path="/item/:itemId"
+            path="/item/:id"
             element={<ItemDetailContainer />}
+          />
+          <Route
+            path="/cart"
+            element={<Cart />}
+          />
+          <Route
+            path="/checkout"
+            element={<CheckoutForm />}
           />
           <Route
             path="*"

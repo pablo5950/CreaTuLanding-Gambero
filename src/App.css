@@ -17,25 +17,29 @@ body {
   background-color: #1e2a38;
   color: white;
   padding: 1.5rem 2rem;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .navbar h1 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
   font-weight: bold;
+}
+
+.navbar p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
 .navbar ul {
   list-style: none;
   display: flex;
-  justify-content: center; 
-  align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 0;
-  margin: 1rem auto 0 auto;
+  margin-top: 1rem;
 }
-
 
 .navbar li a {
   color: white;
@@ -51,6 +55,24 @@ body {
   background-color: #31475f;
 }
 
+/* CartWidget */
+.cart-widget {
+  position: relative;
+  display: inline-block;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.cart-widget span {
+  position: absolute;
+  top: -7px;
+  right: -12px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
 
 /* Main layout */
 main {
@@ -136,32 +158,19 @@ main {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
-.item-count button {
+.item-count .contador {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.item-count .contador button {
   padding: 0.4rem 0.8rem;
-  font-size: 2rem;
-  background-color: #31475f;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.item-count button:hover {
-  background-color: #31475f;
-}
-
-.item-count span {
-  font-size: 2.2rem;
-  font-weight: bold;
-}
-
-/* Botones de cantidad */
-.item-count button {
-  padding: 0.4rem 0.8rem;
-  font-size: 1rem;
-  background-color: #2ecc71; 
+  font-size: 1.5rem;
+  background-color: #2ecc71;
   color: white;
   border: none;
   border-radius: 4px;
@@ -169,22 +178,20 @@ main {
   transition: background-color 0.2s ease;
 }
 
-.item-count button:hover {
-  background-color: #27ae60; 
+.item-count .contador button:hover {
+  background-color: #27ae60;
 }
 
-/* Separación entre contador y botón */
-.item-detail .item-count {
-  margin-bottom: 3rem;
+.item-count .contador span {
+  font-size: 2rem;
+  font-weight: bold;
 }
-
 
 /* Botón Agregar al carrito */
-.item-detail button {
-  margin-top: 1rem;
+.item-count .btn-agregar {
   padding: 0.6rem 1rem;
-  font-size: 1,5rem;
-  background-color: #360492; 
+  font-size: 1.1rem;
+  background-color: #360492;
   color: white;
   border: none;
   border-radius: 6px;
@@ -192,8 +199,50 @@ main {
   transition: background-color 0.2s ease;
 }
 
-.item-detail button:hover {
-  background-color: #c5303c; 
+.item-count .btn-agregar:hover {
+  background-color: #c5303c;
+}
+
+/* Separación entre contador y botón */
+.item-detail .item-count {
+  margin-bottom: 3rem;
+}
+
+/* Cart */
+.cart {
+  max-width: 800px;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.cart h2 {
+  margin-bottom: 1rem;
+}
+
+.cart-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.cart-item img {
+  border-radius: 4px;
+  width: 80px;
+  height: auto;
+}
+
+.cart-item button {
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.8rem;
+  background-color: #c5303c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 /* NotFound */
@@ -203,3 +252,75 @@ main {
   font-size: 1.5rem;
   color: #555;
 }
+
+.checkout-form {
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.checkout-form input {
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkout-form button {
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.checkout-form button:hover {
+  background-color: #27ae60;
+}
+
+.checkout-confirmacion {
+  max-width: 500px;
+  margin: 2rem auto;
+  background-color: #eafaf1;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.finalizar-compra {
+  padding: 0.6rem 1rem;
+  background-color: #360492;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.finalizar-compra:hover {
+  background-color: #5e2dbd;
+}
+
+.volver-inicio {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background-color: #2d72d9;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.volver-inicio:hover {
+  background-color: #1b4f9c;
+}
+
