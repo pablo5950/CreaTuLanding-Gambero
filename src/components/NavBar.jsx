@@ -3,13 +3,11 @@ import CartWidget from './CartWidget';
 
 function NavBar() {
   return (
-    <nav className="navbar" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <div>
+    <nav className="navbar">
+      <div className="navbar-left">
         <h1>Pablos</h1>
-        <p style={{ fontSize: '1rem', marginBottom: '1rem' }}>
-          Todo lo que buscás en un solo lugar
-        </p>
-        <ul style={{ display: 'flex', gap: '1rem', listStyle: 'none', padding: 0 }}>
+        <p className="navbar-subtitulo">Todo lo que buscás en un solo lugar</p>
+        <ul className="navbar-menu">
           <li><NavLink to="/">Inicio</NavLink></li>
           <li><NavLink to="/category/hombre">Hombre</NavLink></li>
           <li><NavLink to="/category/mujer">Mujer</NavLink></li>
@@ -18,7 +16,9 @@ function NavBar() {
         </ul>
       </div>
 
-      <CartWidget />
+      <div className="navbar-right">
+        <CartWidget />
+      </div>
     </nav>
   );
 }

@@ -54,7 +54,7 @@ function CheckoutForm() {
         <h2>✅ ¡Gracias por tu compra!</h2>
         <p>Tu código de orden es: <strong>{orderId}</strong></p>
         <Link to="/">
-          <button className="volver-inicio">🔁 Volver al inicio</button>
+          <button className="btn-principal">🔁 Volver al inicio</button>
         </Link>
       </div>
     );
@@ -82,7 +82,7 @@ function CheckoutForm() {
         onChange={(e) => setTelefono(e.target.value)}
       />
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <button type="submit">Confirmar compra</button>
+      <button type="submit" className="btn-principal">Confirmar compra</button>
     </form>
   );
 }

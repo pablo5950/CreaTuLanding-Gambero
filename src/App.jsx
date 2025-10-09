@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Cart from './components/Cart';
 import CheckoutForm from './components/CheckoutForm';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer'; // 👈 Importamos el Footer
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer /> {}
     </>
   );
 }

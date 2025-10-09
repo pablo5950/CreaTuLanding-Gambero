@@ -28,7 +28,7 @@ function Cart() {
                 <p>Cantidad: {cantidad || 0}</p>
                 <p>Precio unitario: ${price || 'Consultar'}</p>
                 <p>Subtotal: ${price && cantidad ? price * cantidad : 0}</p>
-                <button onClick={() => removeItem(id)}>Eliminar</button>
+                <button className="btn-principal" onClick={() => removeItem(id)}>Eliminar</button>
               </div>
             </li>
           );
@@ -40,10 +40,10 @@ function Cart() {
       <p>Total a pagar: ${totalPrice || 0}</p>
 
       <div style={{ marginTop: '1rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-        <button onClick={clearCart}>Vaciar carrito</button>
+        <button className="btn-principal" onClick={clearCart}>Vaciar carrito</button>
 
         <Link to="/checkout">
-          <button className="finalizar-compra">
+          <button className="btn-principal">
             📝 Finalizar compra
           </button>
         </Link>

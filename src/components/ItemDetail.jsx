@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ItemCount from './ItemCount';
 import { useCart } from '../context/CartContext';
+import { NavLink } from 'react-router-dom';
 
 function ItemDetail({ producto }) {
   const [cantidadAgregada, setCantidadAgregada] = useState(0);
@@ -28,7 +29,13 @@ function ItemDetail({ producto }) {
       <p>Stock disponible: {stock || 0}</p>
 
       {cantidadAgregada > 0 ? (
-        <p>✅ Producto agregado: {cantidadAgregada} unidad(es)</p>
+        <>
+          <p>✅ Producto agregado: {cantidadAgregada} unidad(es)</p>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <NavLink to="/cart" className="btn-principal">Ir al carrito</NavLink>
+            <NavLink to="/" className="btn-principal">Seguir comprando</NavLink>
+          </div>
+        </>
       ) : (
         <ItemCount stock={stock} initial={1} onAdd={handleAdd} />
       )}

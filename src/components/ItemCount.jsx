@@ -2,6 +2,7 @@ import { useState } from 'react';
 
 function ItemCount({ stock, initial = 1, onAdd }) {
   const [count, setCount] = useState(initial);
+  const [agregado, setAgregado] = useState(false); 
 
   const sumar = () => {
     if (count < stock) setCount(prev => prev + 1);
@@ -14,6 +15,7 @@ function ItemCount({ stock, initial = 1, onAdd }) {
   const agregarAlCarrito = () => {
     if (stock > 0 && count <= stock) {
       onAdd(count);
+      setAgregado(true); 
     }
   };
 
@@ -21,17 +23,32 @@ function ItemCount({ stock, initial = 1, onAdd }) {
     <div className="item-count">
       {stock === 0 ? (
         <p>❌ Producto sin stock</p>
+      ) : agregado ? (
+        <p>✅ Producto agregado al carrito</p>
       ) : (
         <>
-          <div className="contador">
-            <button onClick={restar} disabled={count <= 1}>-</button>
+          <div className="contador" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+            <button
+              onClick={restar}
+              disabled={count <= 1}
+              className="btn-principal"
+            >
+              -
+            </button>
             <span>{count}</span>
-            <button onClick={sumar} disabled={count >= stock}>+</button>
+            <button
+              onClick={sumar}
+              disabled={count >= stock}
+              className="btn-principal"
+            >
+              +
+            </button>
           </div>
           <button
             onClick={agregarAlCarrito}
-            className="btn-agregar"
+            className="btn-principal"
             disabled={stock === 0}
+            style={{ marginTop: '1rem' }}
           >
             Agregar al carrito
           </button>
