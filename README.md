@@ -1,12 +1,85 @@
-# React + Vite
+# Pablos — E-commerce React + Firebase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Pablos** es una tienda online desarrollada como proyecto final del curso de React JS en Coderhouse. Se trata de una Single Page Application (SPA) que permite navegar por un catálogo de productos, agregar al carrito, realizar compras y registrar órdenes en una base de datos en la nube.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Temática
 
-## Expanding the ESLint configuration
+La tienda ofrece productos de:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Ropa de hombre
+- Ropa de mujer
+- Bijouterie
+- Electrónica
+
+---
+
+##  Tecnologías utilizadas
+
+- React JS
+- React Router DOM
+- Firebase Firestore
+- Context API
+- CSS puro
+
+---
+
+##  Estructura de componentes
+
+- NavBar
+- CartWidget
+- ItemListContainer
+- ItemList
+- Item
+- ItemDetailContainer
+- ItemDetail
+- ItemCount
+- Cart
+- CartItem
+- CheckoutForm
+- Footer
+
+
+---
+
+##  Funcionalidades
+
+- Catálogo dinámico desde Firestore  
+- Detalle de producto con selector de cantidad  
+- Carrito con estado global (Context)  
+- Checkout con formulario y confirmación  
+- Generación de orden en Firestore  
+- Renderizado condicional: loaders, mensajes de stock, carrito vacío  
+- Navegación SPA sin recargas   
+
+---
+# Instalación
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/pablo5950/CreaTuLanding-Gambero.git
+
+2. Instalar dependencias:
+   npm install
+
+3. Correr la app: 
+    npm start
+
+# Autor
+
+**Pablo Martín Gambero**  
+Curso React JS — Coderhouse  
+Comisión:  94235
+
+---
+
+# Contacto
+
+- [GitHub](https://github.com/pablo5950)  
+
+---
+
+# Cierre
+
+Este proyecto fue desarrollado con dedicación por Pablo Martín Gambero, integrando conocimientos adquiridos en el curso y aplicando buenas prácticas.
